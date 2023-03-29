@@ -1,0 +1,128 @@
+.navbar {
+  height: 50px;
+  border-bottom: 0.5px solid rgb(231, 228, 228);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--premary-color);
+
+  .wrapper {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .top {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      margin-right: 2px;
+      gap: 16px;
+      padding: 0 21px;
+
+      .toggle-icon {
+        color: #66788a;
+        font-weight: 300;
+      }
+
+      .link {
+        text-decoration: none;
+        .name {
+          font-size: 16px;
+          font-weight: 600;
+          color: #27bcfd;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      padding: 3px;
+
+      input {
+        border: none;
+        outline: none;
+        background: transparent;
+
+        &::placeholder {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+
+      .item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        position: relative;
+        cursor: pointer;
+
+        .icon {
+          font-size: 24px;
+        }
+
+        .avatar {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background-color: var(--secondary-color);
+          color: #fff;
+          margin-left: 16px;
+        }
+
+        .counter {
+          width: 15px;
+          height: 15px;
+          background-color: #bf0e08;
+          border-radius: 50%;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          font-weight: bold;
+          position: absolute;
+          top: -4px;
+          right: -4px;
+        }
+
+        .dropdown-container {
+          display: none;
+
+          &.show {
+            padding: 8px 16px 8px 24px;
+            display: block;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: max-content;
+            box-shadow: rgb(67 90 111 / 30%) 0px 0px 1px,
+              rgb(67 90 111 / 47%) 0px 8px 10px -4px;
+            background-color: #fff;
+
+            .dropdown {
+              display: flex;
+              gap: 16px;
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+
+      .profile-container {
+        display: relative;
+      }
+    }
+  }
+}

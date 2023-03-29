@@ -1,0 +1,48 @@
+.card-container {
+  max-width: 100%;
+  background-color: #fff;
+  color: #5e6e82;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  padding: 16px 0;
+  box-shadow: rgba(67, 90, 111, 0.14) 0px 0px 0px 1px inset,
+    rgba(67, 90, 111, 0.06) 0px -1px 1px 0px inset;
+
+  .stock-card {
+    padding: 16px 20px;
+    border-radius: 0 0 6px 6px;
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    row-gap: 28px;
+    column-gap: 16px;
+
+    .item {
+      .item-name {
+        color: #3f4c5e;
+        padding-bottom: 4px;
+        margin-bottom: 8px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .quantity {
+        font-size: 18px;
+      }
+
+      .order {
+        font-size: 13px;
+
+        span {
+          display: inline-block;
+          padding: 1px 8px;
+          font-size: 13px;
+          color: #00864e;
+          font-weight: 600;
+          border-radius: 12px;
+          background-color: #ccf6e4;
+        }
+      }
+    }
+  }
+}
