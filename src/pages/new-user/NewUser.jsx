@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { Container, Grid, Typography } from "@mui/material";
 import Textfield from "../../components/FormUI/TextField/index";
 import Select from "../../components/FormUI/Select/index";
+import SubmitButton from "../../components/FormUI/Button/index";
+import country from "../../data/country";
 
 const INITIAL_FORM_STATE = {
   firstName: "",
@@ -16,7 +18,7 @@ const INITIAL_FORM_STATE = {
   addressLine2: "",
   city: "",
   state: "",
-  country: "",
+  country: "Ethiopia",
   role: "",
 };
 
@@ -32,9 +34,9 @@ const FORM_VALIDATION = Yup.object().shape({
   addressLine1: Yup.string().required("Required"),
   addressLine2: Yup.string(),
   city: Yup.string().required("Required"),
-  state: Yup.string().required("Required"),
-  country: Yup.string().required("Required"),
-  Role: Yup.string().required("Required"),
+  state: Yup.string().required("State is required"),
+  country: Yup.string().required("Country is required!"),
+  role: Yup.string().required("Role is equired"),
 });
 
 const roles = [
@@ -55,7 +57,7 @@ function UserForm() {
         }}
         validationSchema={FORM_VALIDATION}
         onSubmit={(values) => {
-          console.log(values);
+          console.log("submitted", values);
         }}
       >
         <Form>
@@ -96,7 +98,13 @@ function UserForm() {
               <Textfield name="state" label="State" />
             </Grid>
             <Grid item xs={12}>
-              <Select name="role" label="Role" options={roles}/>
+              <Select name="country" label="Country" options={country} />
+            </Grid>
+            <Grid item xs={12}>
+              <Select name="role" label="Role" options={roles} />
+            </Grid>
+            <Grid item xs={12}>
+              <SubmitButton>Create User</SubmitButton>
             </Grid>
           </Grid>
         </Form>

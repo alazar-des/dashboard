@@ -7,6 +7,7 @@ import Users from "../../components/Users";
 import ProductionStatics from "../../components/ProductionStatics";
 import Overview from "../../components/Overview";
 import ProductStockStatus from "../../components/ProductStockStatus";
+import ProductionCharts from "../production/productionChart"
 
 function Home() {
   return (
@@ -14,7 +15,7 @@ function Home() {
       <Overview />
       <ProductStockStatus />
       <VerticalScrollTable />
-      <ProductionStatics />
+      <ProductionCharts />
       <RowMaterialStock />
       <Users />
     </div>

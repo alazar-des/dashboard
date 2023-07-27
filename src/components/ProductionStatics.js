@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
-import ProductionBarChart from "./BarChart";
-import LineChart from "./LineChart";
+import LineChart from "./Charts/LineChart";
+import BarChart from "./Charts/BarChart";
 
 import { FormControl, Select, MenuItem } from "@mui/material";
 import Card from "./Card";
@@ -50,7 +50,7 @@ import Card from "./Card";
 const data = [
   {
     id: "Day Shift",
-    "color": "hsl(142, 70%, 50%)",
+    color: "hsl(142, 70%, 50%)",
     data: [
       {
         x: "Mar 15, 2023",
@@ -282,6 +282,15 @@ function ProductionStatics() {
     setDisplay(event.target.value);
   };
 
+  const colors = {
+    "Day shift": "#47B881",
+    "Day Waste": "#7CCDA7",
+    "Nigth Shift": "#7266B1",
+    "Night Waste": "#9C8DDE",
+  };
+
+  const getColor = (bar) => colors[bar.id];
+
   return (
     <Card style={{ height: 400, paddingBottom: "40px" }}>
       <Box
@@ -324,24 +333,24 @@ function ProductionStatics() {
           </Select>
         </FormControl>
       </Box>
-      <LineChart data={data} />
-      {/*display === "all" ? (
-        <ProductionBarChart
+      {/*<LineChart data={data} />*/}
+      {display === "all" ? (
+        <BarChart
           data={dailyData}
           keys={dailyKeys}
           groupMode={"grouped"}
           enableLabel={false}
-          colors={"nivo"}
+          colors={getColor}
         />
       ) : (
-        <ProductionBarChart
-          data={data}
-          keys={keys}
+        <BarChart
+          data={dailyData}
+          keys={dailyKeys}
           groupMode={"stacked"}
           enableLabel={true}
-          colors={"nivo"}
+          colors={getColor}
         />
-      )*/}
+      )}
     </Card>
   );
 }

@@ -18,9 +18,13 @@ import NewOrder from "./pages/new-order/NewOrder";
 import RowMaterials from "./pages/row-materials/RowMaterials";
 import RawMaterial from "./pages/row-material/RowMaterial";
 import NewRawMaterial from "./pages/new-rowmaterial/NewRowMaterial";
+import ReceivedRowMaterial from "./pages/received-rowmaterail/ReceivedRowMaterial";
+import RowMaterialIssueForm from "./pages/rowmaterialissue-form/RowMaterialIssueForm";
+import RowMaterialResponseForm from "./pages/rowmaterialresponse-form/RowMaterialResponseForm";
 import Spares from "./pages/spares/Spares";
 import Spare from "./pages/spare/Spare";
 import NewSpare from "./pages/new-spare/NewSpare";
+import SpareCatagoryForm from "./pages/sparecatagory/SpareCatagoryForm"
 import Remarks from "./pages/remarks/Remarks";
 import Remark from "./pages/remark/Remark";
 import NewRemark from "./pages/new-remark/NewRemark";
@@ -92,11 +96,15 @@ function App() {
                 <Route index element={<RowMaterials />} />
                 <Route path=":id" element={<RawMaterial />} />
                 <Route path="new" element={<NewRawMaterial />} />
+                <Route path="received" element={<ReceivedRowMaterial />} />
+                <Route path="issue" element={<RowMaterialIssueForm />} />
+                <Route path="response" element={<RowMaterialResponseForm />} />
               </Route>
               <Route path="spares">
                 <Route index element={<Spares />} />
                 <Route path=":id" element={<Spare />} />
                 <Route path="new" element={<NewSpare />} />
+                <Route path="catagories" element={<SpareCatagoryForm />} />
               </Route>
               <Route path="production">
                 <Route index element={<MonthlyProduction />} />

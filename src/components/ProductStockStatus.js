@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import { Typography, Box } from "@mui/material";
-import PieChart from "./PieChart";
+import PieChart from "./Charts/PieChart";
 import { stockProductData } from "../data/data";
 
 import StockCard from "./StockCard/StockCard";
@@ -23,7 +23,7 @@ function ProductStockStatus() {
       >
         <Box
           sx={{
-            height: 400,
+            height: 300,
             width: 1,
             border: "none",
             backgroundColor: "#fff",

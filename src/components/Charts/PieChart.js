@@ -1,14 +1,13 @@
 import { ResponsivePie } from "@nivo/pie";
 import React from 'react'
 
-
-const PieChart = ({ data }) => (
+const PieChart = ({ data, config }) => (
   <ResponsivePie
     colors={{ datum: "data.color" }}
     data={data}
-    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+    margin={{ top: 30, right: 20, bottom: 30, left: 20 }}
     innerRadius={0.5}
-    padAngle={0.7}
+    padAngle={0.75}
     cornerRadius={3}
     activeOuterRadiusOffset={8}
     borderWidth={1}
@@ -25,40 +24,6 @@ const PieChart = ({ data }) => (
       from: "color",
       modifiers: [["darker", 2]],
     }}
-    defs={[
-      {
-        id: "dots",
-        type: "patternDots",
-        background: "inherit",
-        color: "rgba(255, 255, 255, 0.7)",
-        size: 4,
-        padding: 1,
-        stagger: true,
-      },
-      {
-        id: "lines",
-        type: "patternLines",
-        background: "inherit",
-        color: "rgba(255, 255, 255, 0.7)",
-        rotation: -45,
-        lineWidth: 5,
-        spacing: 10,
-      },
-    ]}
-    fill={[
-      {
-        match: {
-          id: "Oromiya 72 x 120 90 G",
-        },
-        id: "lines",
-      },
-      {
-        match: {
-          id: "Brown 72*120 90gm",
-        },
-        id: "lines",
-      },
-    ]}
     legends={[
       {
         anchor: "right",
@@ -84,6 +49,7 @@ const PieChart = ({ data }) => (
         ],
       },
     ]}
+    {...config}
   />
 );
 

@@ -9,17 +9,17 @@ const BarChart = ({ data, keys, groupMode, enableLabel, colors }) => {
     ? [
         {
           dataFrom: "keys",
-          anchor: "bottom-right",
-          direction: "column",
+          anchor: "bottom",
+          direction: "row",
           justify: false,
-          translateX: 120,
-          translateY: 0,
-          itemsSpacing: 2,
-          itemWidth: 150,
+          translateX: 0,
+          translateY: 90,
+          itemsSpacing: 0,
+          itemWidth: 160,
           itemHeight: 20,
           itemDirection: "left-to-right",
-          itemOpacity: 0.85,
-          symbolSize: 20,
+          itemOpacity: 1,
+          symbolSize: 12,
           effects: [
             {
               on: "hover",
@@ -33,8 +33,8 @@ const BarChart = ({ data, keys, groupMode, enableLabel, colors }) => {
     : [];
 
   const margin = matches
-    ? { top: 50, right: 80, bottom: 50, left: 60 }
-    : { top: 50, right: 0, bottom: 50, left: 60 };
+    ? { top: 50, right: 0, bottom: 90, left: 60 }
+    : { top: 50, right: 0, bottom: 30, left: 60 };
 
   return (
     <ResponsiveBar
@@ -47,7 +47,7 @@ const BarChart = ({ data, keys, groupMode, enableLabel, colors }) => {
       padding={0.4}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}
-      colors={{ scheme: colors }}
+      colors={colors}
       borderColor={{
         from: "color",
         modifiers: [["darker", 3]],
@@ -57,10 +57,10 @@ const BarChart = ({ data, keys, groupMode, enableLabel, colors }) => {
       axisBottom={{
         tickSize: 5,
         tickPadding: 5,
-        tickRotation: 0,
+        tickRotation: -90,
         legend: "Date",
         legendPosition: "middle",
-        legendOffset: 32,
+        legendOffset: 60,
       }}
       axisLeft={{
         tickSize: 5,

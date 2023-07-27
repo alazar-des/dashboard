@@ -5,18 +5,49 @@ import * as Yup from "yup";
 import { Container, Grid, Typography } from "@mui/material";
 import Textfield from "../../components/FormUI/TextField/index";
 import SubmitButton from "../../components/FormUI/Button/index";
+import Select from "../../components/FormUI/Select/index";
+
+const sources = ["Supplied", "Recycle"];
+
+const rowmaterials = [
+  "PP",
+  "daplast green",
+  "daplast BLACK",
+  "sataindra red",
+  "sataindra blue",
+  "daplast ORANGE",
+  "Filler",
+  "Brown M.B",
+  "White M/B",
+  "Tinner",
+  "Green ink",
+  "Black ink",
+  "Red ink",
+  "Blue dark ink",
+  "Blue light ink",
+  "yellow",
+  "oil",
+];
 
 const INITIAL_FORM_STATE = {
   rowmaterialType: "",
-  unit: "",
+  quantity: "",
+  source: "Supplied",
+  supplier: "",
 };
 
 const FORM_VALIDATION = Yup.object().shape({
   rowmaterialType: Yup.string().required("Row material type is required"),
-  unit: Yup.string().required("Measurement unit is equired"),
+  quantity: Yup.number()
+    .required("Quantity is equired")
+    .min(1, "Inter valid quantity"),
+  source: Yup.mixed()
+    .oneOf(["Supplied", "Recycle"])
+    .required("source should be specified"),
+  supplier: Yup.string(),
 });
 
-function NewRowmaterialForm() {
+function ReceivedRowmaterialForm() {
   return (
     <Container maxWidth="sm">
       <Formik
@@ -35,20 +66,24 @@ function NewRowmaterialForm() {
                 variant="h5"
                 sx={{ paddingBottom: "16px", color: "#66788a" }}
               >
-                Add New Row Material Catagory
+                Add Row Material
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Textfield
+              <Select
                 name="rowmaterialType"
-                label="Product Type"
+                label="Row Material Type"
+                options={rowmaterials}
               />
             </Grid>
             <Grid item xs={12}>
-              <Textfield
-                name="unit"
-                label="Measurement Unit"
-              />
+              <Textfield name="quantity" label="Quantity" />
+            </Grid>
+            <Grid item xs={12}>
+              <Select name="source" label="Source" options={sources} />
+            </Grid>
+            <Grid item xs={12}>
+              <Textfield name="supplier" label="Supplier" />
             </Grid>
             <Grid item xs={12}>
               <SubmitButton>Add Row Material</SubmitButton>
@@ -60,4 +95,4 @@ function NewRowmaterialForm() {
   );
 }
 
-export default NewRowmaterialForm;
+export default ReceivedRowmaterialForm;
